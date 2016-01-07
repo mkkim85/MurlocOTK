@@ -36,28 +36,28 @@
             this.pictureBoxBluegill = new System.Windows.Forms.PictureBox();
             this.pictureBoxWarleader = new System.Windows.Forms.PictureBox();
             this.pictureBoxMurkEye = new System.Windows.Forms.PictureBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.labelBluegillAttack = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.labelBluegillLife = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.labelWarleaderLife = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.labelWarleaderAttack = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.nudWarleaderAlive = new System.Windows.Forms.NumericUpDown();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.nudWarleaderDead = new System.Windows.Forms.NumericUpDown();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.labelMurkEyeLife = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.labelMurkEyeAttack = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.nudMurkEyeAlive = new System.Windows.Forms.NumericUpDown();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.nudMurkEyeDead = new System.Windows.Forms.NumericUpDown();
             this.labelOneTurnDamage = new System.Windows.Forms.Label();
             this.buttonRecalc = new System.Windows.Forms.Button();
+            this.labelBluegillAttack = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelBluegillLife = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.labelWarleaderAttack = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.labelMurkEyeAttack = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.labelWarleaderLife = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.labelMurkEyeLife = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBluegillAlive)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,20 +65,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBluegill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWarleader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMurkEye)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWarleaderAlive)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWarleaderDead)).BeginInit();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMurkEyeAlive)).BeginInit();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMurkEyeDead)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonReset
@@ -139,7 +139,7 @@
             this.pictureBoxBluegill.Size = new System.Drawing.Size(277, 414);
             this.pictureBoxBluegill.TabIndex = 6;
             this.pictureBoxBluegill.TabStop = false;
-            this.pictureBoxBluegill.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxBluegill.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxBluegill_MouseClick);
             // 
             // pictureBoxWarleader
             // 
@@ -149,7 +149,7 @@
             this.pictureBoxWarleader.Size = new System.Drawing.Size(277, 414);
             this.pictureBoxWarleader.TabIndex = 6;
             this.pictureBoxWarleader.TabStop = false;
-            this.pictureBoxWarleader.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBoxWarleader.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxWarleader_MouseClick);
             // 
             // pictureBoxMurkEye
             // 
@@ -159,87 +159,7 @@
             this.pictureBoxMurkEye.Size = new System.Drawing.Size(277, 414);
             this.pictureBoxMurkEye.TabIndex = 6;
             this.pictureBoxMurkEye.TabStop = false;
-            this.pictureBoxMurkEye.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.labelBluegillAttack);
-            this.groupBox3.Location = new System.Drawing.Point(13, 523);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(132, 55);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "공격력(버프)";
-            // 
-            // labelBluegillAttack
-            // 
-            this.labelBluegillAttack.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelBluegillAttack.Location = new System.Drawing.Point(7, 17);
-            this.labelBluegillAttack.Name = "labelBluegillAttack";
-            this.labelBluegillAttack.Size = new System.Drawing.Size(119, 35);
-            this.labelBluegillAttack.TabIndex = 0;
-            this.labelBluegillAttack.Text = "2(+0)=2";
-            this.labelBluegillAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.labelBluegillLife);
-            this.groupBox4.Location = new System.Drawing.Point(159, 523);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(131, 55);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "체력(버프)";
-            // 
-            // labelBluegillLife
-            // 
-            this.labelBluegillLife.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelBluegillLife.Location = new System.Drawing.Point(6, 17);
-            this.labelBluegillLife.Name = "labelBluegillLife";
-            this.labelBluegillLife.Size = new System.Drawing.Size(119, 35);
-            this.labelBluegillLife.TabIndex = 0;
-            this.labelBluegillLife.Text = "1(+0)=1";
-            this.labelBluegillLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.labelWarleaderLife);
-            this.groupBox5.Location = new System.Drawing.Point(442, 523);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(131, 55);
-            this.groupBox5.TabIndex = 8;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "체력(버프)";
-            // 
-            // labelWarleaderLife
-            // 
-            this.labelWarleaderLife.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelWarleaderLife.Location = new System.Drawing.Point(6, 17);
-            this.labelWarleaderLife.Name = "labelWarleaderLife";
-            this.labelWarleaderLife.Size = new System.Drawing.Size(119, 35);
-            this.labelWarleaderLife.TabIndex = 0;
-            this.labelWarleaderLife.Text = "1(+0)=1";
-            this.labelWarleaderLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.labelWarleaderAttack);
-            this.groupBox6.Location = new System.Drawing.Point(296, 523);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(132, 55);
-            this.groupBox6.TabIndex = 6;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "공격력(버프)";
-            // 
-            // labelWarleaderAttack
-            // 
-            this.labelWarleaderAttack.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelWarleaderAttack.Location = new System.Drawing.Point(7, 17);
-            this.labelWarleaderAttack.Name = "labelWarleaderAttack";
-            this.labelWarleaderAttack.Size = new System.Drawing.Size(119, 35);
-            this.labelWarleaderAttack.TabIndex = 0;
-            this.labelWarleaderAttack.Text = "2(+0)=2";
-            this.labelWarleaderAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureBoxMurkEye.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMurkEye_MouseClick);
             // 
             // groupBox7
             // 
@@ -280,46 +200,6 @@
             this.nudWarleaderDead.TabIndex = 1;
             this.nudWarleaderDead.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudWarleaderDead.ValueChanged += new System.EventHandler(this.nudWarleaderDead_ValueChanged);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.labelMurkEyeLife);
-            this.groupBox9.Location = new System.Drawing.Point(725, 523);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(131, 55);
-            this.groupBox9.TabIndex = 12;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "체력(버프)";
-            // 
-            // labelMurkEyeLife
-            // 
-            this.labelMurkEyeLife.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelMurkEyeLife.Location = new System.Drawing.Point(6, 17);
-            this.labelMurkEyeLife.Name = "labelMurkEyeLife";
-            this.labelMurkEyeLife.Size = new System.Drawing.Size(119, 35);
-            this.labelMurkEyeLife.TabIndex = 0;
-            this.labelMurkEyeLife.Text = "1(+0)=1";
-            this.labelMurkEyeLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.labelMurkEyeAttack);
-            this.groupBox10.Location = new System.Drawing.Point(579, 523);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(132, 55);
-            this.groupBox10.TabIndex = 10;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "공격력(버프)";
-            // 
-            // labelMurkEyeAttack
-            // 
-            this.labelMurkEyeAttack.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelMurkEyeAttack.Location = new System.Drawing.Point(7, 17);
-            this.labelMurkEyeAttack.Name = "labelMurkEyeAttack";
-            this.labelMurkEyeAttack.Size = new System.Drawing.Size(119, 35);
-            this.labelMurkEyeAttack.TabIndex = 0;
-            this.labelMurkEyeAttack.Text = "2(+0)=2";
-            this.labelMurkEyeAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox11
             // 
@@ -367,20 +247,140 @@
             this.labelOneTurnDamage.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelOneTurnDamage.Location = new System.Drawing.Point(114, 13);
             this.labelOneTurnDamage.Name = "labelOneTurnDamage";
-            this.labelOneTurnDamage.Size = new System.Drawing.Size(115, 21);
+            this.labelOneTurnDamage.Size = new System.Drawing.Size(99, 21);
             this.labelOneTurnDamage.TabIndex = 15;
-            this.labelOneTurnDamage.Text = "원턴 데미지: 0";
+            this.labelOneTurnDamage.Text = "총 공격력: 0";
             // 
             // buttonRecalc
             // 
-            this.buttonRecalc.Location = new System.Drawing.Point(780, 13);
+            this.buttonRecalc.Location = new System.Drawing.Point(766, 13);
             this.buttonRecalc.Name = "buttonRecalc";
-            this.buttonRecalc.Size = new System.Drawing.Size(75, 23);
+            this.buttonRecalc.Size = new System.Drawing.Size(89, 23);
             this.buttonRecalc.TabIndex = 16;
-            this.buttonRecalc.Text = "재계산";
+            this.buttonRecalc.Text = "재계산(랜덤)";
             this.buttonRecalc.UseVisualStyleBackColor = true;
             this.buttonRecalc.Visible = false;
             this.buttonRecalc.Click += new System.EventHandler(this.buttonRecalc_Click);
+            // 
+            // labelBluegillAttack
+            // 
+            this.labelBluegillAttack.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelBluegillAttack.Location = new System.Drawing.Point(7, 17);
+            this.labelBluegillAttack.Name = "labelBluegillAttack";
+            this.labelBluegillAttack.Size = new System.Drawing.Size(119, 35);
+            this.labelBluegillAttack.TabIndex = 0;
+            this.labelBluegillAttack.Text = "2(+0)=2";
+            this.labelBluegillAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelBluegillAttack);
+            this.groupBox3.Location = new System.Drawing.Point(13, 523);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(132, 55);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "공격력(버프)";
+            // 
+            // labelBluegillLife
+            // 
+            this.labelBluegillLife.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelBluegillLife.Location = new System.Drawing.Point(6, 17);
+            this.labelBluegillLife.Name = "labelBluegillLife";
+            this.labelBluegillLife.Size = new System.Drawing.Size(119, 35);
+            this.labelBluegillLife.TabIndex = 0;
+            this.labelBluegillLife.Text = "1(+0)=1";
+            this.labelBluegillLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.labelBluegillLife);
+            this.groupBox4.Location = new System.Drawing.Point(159, 523);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(131, 55);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "체력(버프)";
+            // 
+            // labelWarleaderAttack
+            // 
+            this.labelWarleaderAttack.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelWarleaderAttack.Location = new System.Drawing.Point(7, 17);
+            this.labelWarleaderAttack.Name = "labelWarleaderAttack";
+            this.labelWarleaderAttack.Size = new System.Drawing.Size(119, 35);
+            this.labelWarleaderAttack.TabIndex = 0;
+            this.labelWarleaderAttack.Text = "2(+0)=2";
+            this.labelWarleaderAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.labelWarleaderAttack);
+            this.groupBox6.Location = new System.Drawing.Point(296, 523);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(132, 55);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "공격력(버프)";
+            // 
+            // labelMurkEyeAttack
+            // 
+            this.labelMurkEyeAttack.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelMurkEyeAttack.Location = new System.Drawing.Point(7, 17);
+            this.labelMurkEyeAttack.Name = "labelMurkEyeAttack";
+            this.labelMurkEyeAttack.Size = new System.Drawing.Size(119, 35);
+            this.labelMurkEyeAttack.TabIndex = 0;
+            this.labelMurkEyeAttack.Text = "2(+0)=2";
+            this.labelMurkEyeAttack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.labelMurkEyeAttack);
+            this.groupBox10.Location = new System.Drawing.Point(579, 523);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(132, 55);
+            this.groupBox10.TabIndex = 10;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "공격력(버프)";
+            // 
+            // labelWarleaderLife
+            // 
+            this.labelWarleaderLife.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelWarleaderLife.Location = new System.Drawing.Point(6, 17);
+            this.labelWarleaderLife.Name = "labelWarleaderLife";
+            this.labelWarleaderLife.Size = new System.Drawing.Size(119, 35);
+            this.labelWarleaderLife.TabIndex = 0;
+            this.labelWarleaderLife.Text = "1(+0)=1";
+            this.labelWarleaderLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.labelWarleaderLife);
+            this.groupBox5.Location = new System.Drawing.Point(442, 523);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(131, 55);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "체력(버프)";
+            // 
+            // labelMurkEyeLife
+            // 
+            this.labelMurkEyeLife.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelMurkEyeLife.Location = new System.Drawing.Point(6, 17);
+            this.labelMurkEyeLife.Name = "labelMurkEyeLife";
+            this.labelMurkEyeLife.Size = new System.Drawing.Size(119, 35);
+            this.labelMurkEyeLife.TabIndex = 0;
+            this.labelMurkEyeLife.Text = "1(+0)=1";
+            this.labelMurkEyeLife.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.labelMurkEyeLife);
+            this.groupBox9.Location = new System.Drawing.Point(725, 523);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(131, 55);
+            this.groupBox9.TabIndex = 12;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "체력(버프)";
             // 
             // MurlocOTK
             // 
@@ -406,7 +406,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonReset);
             this.Name = "MurlocOTK";
-            this.Text = "Murloc OTK Calculator by mkkim";
+            this.Text = "Murloc OTK Calculator by mkkim (e-mail: mkkim@outlook.kr)";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudBluegillAlive)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -414,20 +414,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBluegill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWarleader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMurkEye)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudWarleaderAlive)).EndInit();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudWarleaderDead)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudMurkEyeAlive)).EndInit();
             this.groupBox12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudMurkEyeDead)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,28 +443,28 @@
         private System.Windows.Forms.PictureBox pictureBoxMurkEye;
         private System.Windows.Forms.NumericUpDown nudBluegillAlive;
         private System.Windows.Forms.NumericUpDown nudBluegillDead;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label labelBluegillAttack;
-        private System.Windows.Forms.Label labelBluegillLife;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label labelWarleaderLife;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label labelWarleaderAttack;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.NumericUpDown nudWarleaderAlive;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.NumericUpDown nudWarleaderDead;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label labelMurkEyeLife;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label labelMurkEyeAttack;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.NumericUpDown nudMurkEyeAlive;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.NumericUpDown nudMurkEyeDead;
         private System.Windows.Forms.Label labelOneTurnDamage;
         private System.Windows.Forms.Button buttonRecalc;
+        private System.Windows.Forms.Label labelBluegillAttack;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label labelBluegillLife;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label labelWarleaderAttack;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label labelMurkEyeAttack;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label labelWarleaderLife;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label labelMurkEyeLife;
+        private System.Windows.Forms.GroupBox groupBox9;
     }
 }
 
