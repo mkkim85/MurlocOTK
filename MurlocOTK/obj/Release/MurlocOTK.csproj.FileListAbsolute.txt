@@ -1,0 +1,17 @@
+D:\GitHub\MurlocOTK\MurlocOTK\bin\Release\MurlocOTK.exe.config
+D:\GitHub\MurlocOTK\MurlocOTK\bin\Release\MurlocOTK.exe
+D:\GitHub\MurlocOTK\MurlocOTK\bin\Release\MurlocOTK.pdb
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.csprojResolveAssemblyReference.cache
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.MurlocOTK.resources
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.Properties.Resources.resources
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.csproj.GenerateResource.Cache
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.exe
+D:\GitHub\MurlocOTK\MurlocOTK\obj\Release\MurlocOTK.pdb
+D:\GitHub\MurlocOTKmini\MurlocOTK\bin\Release\MurlocOTK.exe.config
+D:\GitHub\MurlocOTKmini\MurlocOTK\bin\Release\MurlocOTK.exe
+D:\GitHub\MurlocOTKmini\MurlocOTK\bin\Release\MurlocOTK.pdb
+D:\GitHub\MurlocOTKmini\MurlocOTK\obj\Release\MurlocOTK.MurlocOTK.resources
+D:\GitHub\MurlocOTKmini\MurlocOTK\obj\Release\MurlocOTK.Properties.Resources.resources
+D:\GitHub\MurlocOTKmini\MurlocOTK\obj\Release\MurlocOTK.csproj.GenerateResource.Cache
+D:\GitHub\MurlocOTKmini\MurlocOTK\obj\Release\MurlocOTK.exe
+D:\GitHub\MurlocOTKmini\MurlocOTK\obj\Release\MurlocOTK.pdb

@@ -121,6 +121,9 @@
   <data name="Bluegill_Warrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Bluegill Warrior.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Grimscale_Oracle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Grimscale Oracle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Murloc_Warleader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Murloc Warleader.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

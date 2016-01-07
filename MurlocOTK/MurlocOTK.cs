@@ -24,12 +24,16 @@ namespace MurlocOTK
             nudWarleaderAlive.Value = 0;
             nudMurkEyeDead.Value = 0;
             nudMurkEyeAlive.Value = 0;
+            nudOracleDead.Value = 0;
+            nudOracleAlive.Value = 0;
             labelBluegillAttack.Text = "2(0)=2";
             labelBluegillLife.Text = "1(0)=1";
             labelWarleaderAttack.Text = "3(0)=3";
             labelWarleaderLife.Text = "3(0)=3";
             labelMurkEyeAttack.Text = "2(0)=2";
             labelMurkEyeLife.Text = "4(0)=4";
+            labelOracleAttack.Text = "1(0)=1";
+            labelOracleLife.Text = "1(0)=1";
             labelOneTurnDamage.Text = "총 공격력: 0";
         }
 
@@ -38,11 +42,14 @@ namespace MurlocOTK
             int bluegillAttack = 2, bluegillLife = 1;
             int warleaderAttack = 3, warleaderLife = 3;
             int murkeyeAttack = 2, murkeyeLife = 4;
+            int oracleAttack = 1, oracleLife = 1;
             int murlocNum = 0;
-            int bluegilNum = 0, warleaderNum = 0, murkeyeNum = 0;
+            int bluegilNum = 0, warleaderNum = 0, murkeyeNum = 0, oracleNum = 0;
             int oneTurnDamage = 0;
-            int numDead = (int)nudBluegillDead.Value + (int)nudWarleaderDead.Value + (int)nudMurkEyeDead.Value;
-            int numAlive = (int)nudBluegillAlive.Value + (int)nudWarleaderAlive.Value + (int)nudMurkEyeAlive.Value;
+            int numDead = (int)nudBluegillDead.Value + (int)nudWarleaderDead.Value 
+                + (int)nudMurkEyeDead.Value + (int)nudOracleDead.Value;
+            int numAlive = (int)nudBluegillAlive.Value + (int)nudWarleaderAlive.Value 
+                + (int)nudMurkEyeAlive.Value + (int)nudOracleAlive.Value;
 
             if (numDead > MAX_NUM)
                 buttonRecalc.Visible = true;
@@ -57,19 +64,21 @@ namespace MurlocOTK
             {
                 // Pick up murloc randomly
                 int pickNum = MAX_NUM - numAlive;
-                int bluegillPickNum = 0, warleaderPickNum = 0, murkeyePickNum = 0;
+                int bluegillPickNum = 0, warleaderPickNum = 0, murkeyePickNum = 0, oraclePickNum = 0;
                 int pickCount = 0;
                 Random rand = new Random();
 
                 while (pickCount < pickNum)
                 {
-                    int i = rand.Next(3);
+                    int i = rand.Next(4);
                     if (i == 0 && (bluegillPickNum < (int)nudBluegillDead.Value))
                         ++bluegillPickNum;
                     else if (i == 1 && (warleaderPickNum < (int)nudWarleaderDead.Value))
                         ++warleaderPickNum;
                     else if (i == 2 && (murkeyePickNum < (int)nudMurkEyeDead.Value))
                         ++murkeyePickNum;
+                    else if (i == 3 && (oraclePickNum < (int)nudOracleDead.Value))
+                        ++oraclePickNum;
                     else
                         continue;
                     ++pickCount;
@@ -79,6 +88,7 @@ namespace MurlocOTK
                 bluegilNum = bluegillPickNum + (int)nudBluegillAlive.Value;
                 warleaderNum = warleaderPickNum + (int)nudWarleaderAlive.Value;
                 murkeyeNum = murkeyePickNum + (int)nudMurkEyeAlive.Value;
+                oracleNum = oraclePickNum + (int)nudOracleAlive.Value;
             }
             else
             {
@@ -86,22 +96,28 @@ namespace MurlocOTK
                 bluegilNum = (int)nudBluegillAlive.Value + (int)nudBluegillDead.Value;
                 warleaderNum = (int)nudWarleaderAlive.Value + (int)nudWarleaderDead.Value;
                 murkeyeNum = (int)nudMurkEyeAlive.Value + (int)nudMurkEyeDead.Value;
+                oracleNum = (int)nudOracleAlive.Value + (int)nudOracleDead.Value;
             }
 
             if (bluegilNum > 0)
             {
-                bluegillAttack = bluegillAttack + (2 * warleaderNum);
+                bluegillAttack = bluegillAttack + (2 * warleaderNum + 1 * oracleNum);
                 bluegillLife = bluegillLife + (1 * warleaderNum);
             }
             if (warleaderNum > 0)
             {
-                warleaderAttack = warleaderAttack + (2 * (warleaderNum - 1));
+                warleaderAttack = warleaderAttack + (2 * (warleaderNum - 1) + 1 * oracleNum);
                 warleaderLife = warleaderLife + (1 * (warleaderNum - 1));
             }
             if (murkeyeNum > 0)
             {
-                murkeyeAttack = murkeyeAttack + (2 * warleaderNum) + (murlocNum - 1);
+                murkeyeAttack = murkeyeAttack + (2 * warleaderNum) + (murlocNum - 1) + 1 * oracleNum;
                 murkeyeLife = murkeyeLife + (1 * warleaderNum);
+            }
+            if (oracleNum > 0)
+            {
+                oracleAttack = oracleAttack + (2 * warleaderNum) + (1 * (oracleNum - 1));
+                oracleLife = oracleLife + (1 * warleaderNum);
             }
 
             oneTurnDamage
@@ -118,10 +134,14 @@ namespace MurlocOTK
             labelMurkEyeAttack.Text = "2(" + (murkeyeAttack - 2) + ")=" + murkeyeAttack
                 + "*" + murkeyeNum + "=" + murkeyeAttack * murkeyeNum;
             labelMurkEyeLife.Text = "4(" + (murkeyeLife - 4) + ")=" + murkeyeLife;
+            labelOracleAttack.Text = "1(" + (oracleAttack - 1) + ")=" + oracleAttack
+                + "*" + (int)nudOracleAlive.Value + "=" + oracleAttack * (int)nudOracleAlive.Value;
+            labelOracleLife.Text = "1(" + (oracleLife - 1) + ")=" + oracleLife;
             labelOneTurnDamage.Text = "총 공격력: " + oneTurnDamage
                 + " (" + bluegillAttack * bluegilNum + "+" 
                 + warleaderAttack * (int)nudWarleaderAlive.Value + "+"
-                + murkeyeAttack * murkeyeNum + ")";
+                + murkeyeAttack * murkeyeNum + "+"
+                + oracleAttack * (int)nudOracleAlive.Value + ")";
         }
 
         private void buttonRecalc_Click(object sender, EventArgs e)
@@ -137,12 +157,16 @@ namespace MurlocOTK
             nudWarleaderAlive.Value = 0;
             nudMurkEyeDead.Value = 0;
             nudMurkEyeAlive.Value = 0;
+            nudOracleDead.Value = 0;
+            nudOracleAlive.Value = 0;
             labelBluegillAttack.Text = "2(0)=2";
             labelBluegillLife.Text = "1(0)=1";
             labelWarleaderAttack.Text = "3(0)=3";
             labelWarleaderLife.Text = "3(0)=3";
             labelMurkEyeAttack.Text = "2(0)=2";
             labelMurkEyeLife.Text = "4(0)=4";
+            labelOracleAttack.Text = "1(0)=1";
+            labelOracleLife.Text = "1(0)=1";
             buttonRecalc.Visible = false;
         }
 
@@ -176,6 +200,16 @@ namespace MurlocOTK
             Calculate();
         }
 
+        private void nudOracleDead_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate();
+        }
+
+        private void nudOracleAlive_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate();
+        }
+
         private void pictureBoxBluegill_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -200,6 +234,51 @@ namespace MurlocOTK
                 nudMurkEyeDead.Value = nudMurkEyeDead.Value + 1;
             else if (e.Button == MouseButtons.Right && nudMurkEyeDead.Value > 0)
                 nudMurkEyeDead.Value = nudMurkEyeDead.Value - 1;
+            Calculate();
+        }
+
+        private void pictureBoxOracle_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                nudOracleDead.Value = nudOracleDead.Value + 1;
+            else if (e.Button == MouseButtons.Right && nudOracleDead.Value > 0)
+                nudOracleDead.Value = nudOracleDead.Value - 1;
+            Calculate();
+        }
+
+        private void pictureBoxBluegill_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                nudBluegillDead.Value = nudBluegillDead.Value + 1;
+            else if (e.Button == MouseButtons.Right && nudBluegillDead.Value > 0)
+                nudBluegillDead.Value = nudBluegillDead.Value - 1;
+            Calculate();
+        }
+
+        private void pictureBoxWarleader_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                nudWarleaderDead.Value = nudWarleaderDead.Value + 1;
+            else if (e.Button == MouseButtons.Right && nudWarleaderDead.Value > 0)
+                nudWarleaderDead.Value = nudWarleaderDead.Value - 1;
+            Calculate();
+        }
+
+        private void pictureBoxMurkEye_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                nudMurkEyeDead.Value = nudMurkEyeDead.Value + 1;
+            else if (e.Button == MouseButtons.Right && nudMurkEyeDead.Value > 0)
+                nudMurkEyeDead.Value = nudMurkEyeDead.Value - 1;
+            Calculate();
+        }
+
+        private void pictureBoxOracle_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                nudOracleDead.Value = nudOracleDead.Value + 1;
+            else if (e.Button == MouseButtons.Right && nudOracleDead.Value > 0)
+                nudOracleDead.Value = nudOracleDead.Value - 1;
             Calculate();
         }
     }

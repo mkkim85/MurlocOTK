@@ -81,9 +81,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Bluegill Warrior.gif" />
-    <Content Include="Images\Murloc Warleader.gif" />
-    <Content Include="Images\Old Murk-Eye.gif" />
+    <None Include="Images\Bluegill Warrior.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Grimscale Oracle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Murloc Warleader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Old Murk-Eye.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
