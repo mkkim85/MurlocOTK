@@ -137,12 +137,12 @@ namespace MurlocOTK
             nudWarleaderAlive.Value = 0;
             nudMurkEyeDead.Value = 0;
             nudMurkEyeAlive.Value = 0;
-            labelBluegillAttack.Text = "2(+0)=2";
-            labelBluegillLife.Text = "1(+0)=1";
-            labelWarleaderAttack.Text = "3(+0)=3";
-            labelWarleaderLife.Text = "3(+0)=3";
-            labelMurkEyeAttack.Text = "2(+0)=2";
-            labelMurkEyeLife.Text = "4(+0)=4";
+            labelBluegillAttack.Text = "2(0)=2";
+            labelBluegillLife.Text = "1(0)=1";
+            labelWarleaderAttack.Text = "3(0)=3";
+            labelWarleaderLife.Text = "3(0)=3";
+            labelMurkEyeAttack.Text = "2(0)=2";
+            labelMurkEyeLife.Text = "4(0)=4";
             buttonRecalc.Visible = false;
         }
 
