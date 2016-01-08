@@ -13,6 +13,8 @@ namespace MurlocOTK
     public partial class MurlocOTK : Form
     {
         int MAX_NUM = 7;
+        int MIN = int.MaxValue, MAX = 0;
+        int CSUM = 0, CNUM = 0;
 
         public MurlocOTK()
         {
@@ -34,7 +36,83 @@ namespace MurlocOTK
             labelMurkEyeLife.Text = "4(0)=4";
             labelOracleAttack.Text = "1(0)=1";
             labelOracleLife.Text = "1(0)=1";
-            labelOneTurnDamage.Text = "총 공격력: 0";
+            labelOneTurnDamage.Text = "딜: 0";
+        }
+
+        public int getDamage(int[] data)
+        {
+            int bluegillAttack = 2, bluegillLife = 1;
+            int warleaderAttack = 3, warleaderLife = 3;
+            int murkeyeAttack = 2, murkeyeLife = 4;
+            int oracleAttack = 1, oracleLife = 1;
+            int murlocNum = 0;
+            int[] mNum = { 0, 0, 0, 0 };
+            int damage = 0;
+            int numAlive = (int)nudBluegillAlive.Value + (int)nudWarleaderAlive.Value
+                + (int)nudMurkEyeAlive.Value + (int)nudOracleAlive.Value;
+
+            murlocNum = data.Length + numAlive;
+
+            for (int i = 0; i < data.Length; i++)
+                mNum[data[i]]++;
+
+            mNum[0] = mNum[0] + (int)nudBluegillAlive.Value;
+            mNum[1] = mNum[1] + (int)nudWarleaderAlive.Value;
+            mNum[2] = mNum[2] + (int)nudMurkEyeAlive.Value;
+            mNum[3] = mNum[3] + (int)nudOracleAlive.Value;
+
+            if (mNum[0] > 0)
+            {
+                bluegillAttack = bluegillAttack + (2 * mNum[1] + 1 * mNum[3]);
+                bluegillLife = bluegillLife + (1 * mNum[1]);
+            }
+            if (mNum[1] > 0)
+            {
+                warleaderAttack = warleaderAttack + (2 * (mNum[1] - 1) + 1 * mNum[3]);
+                warleaderLife = warleaderLife + (1 * (mNum[1] - 1));
+            }
+            if (mNum[2] > 0)
+            {
+                murkeyeAttack = murkeyeAttack + (2 * mNum[1]) + (murlocNum - 1) + 1 * mNum[3];
+                murkeyeLife = murkeyeLife + (1 * mNum[1]);
+            }
+            if (mNum[3] > 0)
+            {
+                oracleAttack = oracleAttack + (2 * mNum[1]) + (1 * (mNum[3] - 1));
+                oracleLife = oracleLife + (1 * mNum[1]);
+            }
+
+            damage
+                = bluegillAttack * mNum[0]
+                + warleaderAttack * (int)nudWarleaderAlive.Value
+                + murkeyeAttack * mNum[2]
+                + oracleAttack * (int)nudOracleAlive.Value;
+
+            return damage;
+        }
+
+        public void combinationUtil(int[] arr, int[] data, int start, int end, int index, int r)
+        {
+            if (index == r)
+            {
+                // Calculate damage
+                int DAMAGE = getDamage(data);
+
+                if (DAMAGE < MIN)
+                    MIN = DAMAGE;
+                if (DAMAGE > MAX)
+                    MAX = DAMAGE;
+
+                CSUM += DAMAGE;
+                CNUM++;
+                return;
+            }
+
+            for (int i = start; i <= end && end - i + 1 >= r - index; i++)
+            {
+                data[index] = arr[i];
+                combinationUtil(arr, data, i + 1, end, index + 1, r);
+            }
         }
 
         public void Calculate()
@@ -51,7 +129,13 @@ namespace MurlocOTK
             int numAlive = (int)nudBluegillAlive.Value + (int)nudWarleaderAlive.Value 
                 + (int)nudMurkEyeAlive.Value + (int)nudOracleAlive.Value;
 
-            if (numDead > MAX_NUM)
+            // For combination
+            MIN = int.MaxValue;
+            MAX = 0;
+            CSUM = 0;
+            CNUM = 0;
+
+            if (numDead > MAX_NUM && numAlive != MAX_NUM)
                 buttonRecalc.Visible = true;
             else if ((numDead + numAlive) > MAX_NUM && numDead > 1 && numAlive < MAX_NUM)
                 buttonRecalc.Visible = true;
@@ -89,6 +173,22 @@ namespace MurlocOTK
                 warleaderNum = warleaderPickNum + (int)nudWarleaderAlive.Value;
                 murkeyeNum = murkeyePickNum + (int)nudMurkEyeAlive.Value;
                 oracleNum = oraclePickNum + (int)nudOracleAlive.Value;
+
+                int idx = 0;
+
+                int[] arr = new int[numDead];
+                int[] data = new int[pickNum];
+
+                for (int i = 0; i < (int)nudBluegillDead.Value; i++)
+                    arr[idx++] = 0;
+                for (int i = 0; i < (int)nudWarleaderDead.Value; i++)
+                    arr[idx++] = 1;
+                for (int i = 0; i < (int)nudMurkEyeDead.Value; i++)
+                    arr[idx++] = 2;
+                for (int i = 0; i < (int)nudOracleDead.Value; i++)
+                    arr[idx++] = 3;
+
+                combinationUtil(arr, data, 0, numDead - 1, 0, pickNum);
             }
             else
             {
@@ -123,7 +223,8 @@ namespace MurlocOTK
             oneTurnDamage
                 = bluegillAttack * bluegilNum
                 + warleaderAttack * (int)nudWarleaderAlive.Value
-                + murkeyeAttack * murkeyeNum;
+                + murkeyeAttack * murkeyeNum
+                + oracleAttack * (int)nudOracleAlive.Value;
 
             labelBluegillAttack.Text = "2(" + (bluegillAttack - 2) + ")=" + bluegillAttack
                 + "*" + bluegilNum + "=" + bluegillAttack * bluegilNum;
@@ -137,11 +238,24 @@ namespace MurlocOTK
             labelOracleAttack.Text = "1(" + (oracleAttack - 1) + ")=" + oracleAttack
                 + "*" + (int)nudOracleAlive.Value + "=" + oracleAttack * (int)nudOracleAlive.Value;
             labelOracleLife.Text = "1(" + (oracleLife - 1) + ")=" + oracleLife;
-            labelOneTurnDamage.Text = "총 공격력: " + oneTurnDamage
-                + " (" + bluegillAttack * bluegilNum + "+" 
+
+            if (CNUM > 0)
+            {
+                labelOneTurnDamage.Text = "딜: " + oneTurnDamage
+                    + "(" + bluegillAttack * bluegilNum + "+"
+                    + warleaderAttack * (int)nudWarleaderAlive.Value + "+"
+                    + murkeyeAttack * murkeyeNum + "+"
+                    + oracleAttack * (int)nudOracleAlive.Value + ")"
+                    + " 최소/최대/평균(" + MIN + "/" + MAX + "/" + ((double)CSUM / CNUM).ToString("0.0") + ")";
+            }
+            else
+            {
+                labelOneTurnDamage.Text = "딜: " + oneTurnDamage
+                + "(" + bluegillAttack * bluegilNum + "+"
                 + warleaderAttack * (int)nudWarleaderAlive.Value + "+"
                 + murkeyeAttack * murkeyeNum + "+"
                 + oracleAttack * (int)nudOracleAlive.Value + ")";
+            }
         }
 
         private void buttonRecalc_Click(object sender, EventArgs e)
@@ -167,6 +281,7 @@ namespace MurlocOTK
             labelMurkEyeLife.Text = "4(0)=4";
             labelOracleAttack.Text = "1(0)=1";
             labelOracleLife.Text = "1(0)=1";
+            labelOneTurnDamage.Text = "딜: 0";
             buttonRecalc.Visible = false;
         }
 
@@ -177,6 +292,8 @@ namespace MurlocOTK
 
         private void nudBluegillAlive_ValueChanged(object sender, EventArgs e)
         {
+            if (nudBluegillAlive.Value + nudWarleaderAlive.Value + nudMurkEyeAlive.Value + nudOracleAlive.Value > MAX_NUM)
+                nudBluegillAlive.Value--;
             Calculate();
         }
 
@@ -187,6 +304,8 @@ namespace MurlocOTK
 
         private void nudWarleaderAlive_ValueChanged(object sender, EventArgs e)
         {
+            if (nudBluegillAlive.Value + nudWarleaderAlive.Value + nudMurkEyeAlive.Value + nudOracleAlive.Value > MAX_NUM)
+                nudWarleaderAlive.Value--;
             Calculate();
         }
 
@@ -197,6 +316,8 @@ namespace MurlocOTK
 
         private void nudMurkEyeAlive_ValueChanged(object sender, EventArgs e)
         {
+            if (nudBluegillAlive.Value + nudWarleaderAlive.Value + nudMurkEyeAlive.Value + nudOracleAlive.Value > MAX_NUM)
+                nudMurkEyeAlive.Value--;
             Calculate();
         }
 
@@ -207,6 +328,8 @@ namespace MurlocOTK
 
         private void nudOracleAlive_ValueChanged(object sender, EventArgs e)
         {
+            if (nudBluegillAlive.Value + nudWarleaderAlive.Value + nudMurkEyeAlive.Value + nudOracleAlive.Value > MAX_NUM)
+                nudOracleAlive.Value--;
             Calculate();
         }
 

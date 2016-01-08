@@ -121,6 +121,11 @@
             // 
             this.nudBluegillAlive.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nudBluegillAlive.Location = new System.Drawing.Point(6, 20);
+            this.nudBluegillAlive.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.nudBluegillAlive.Name = "nudBluegillAlive";
             this.nudBluegillAlive.Size = new System.Drawing.Size(58, 29);
             this.nudBluegillAlive.TabIndex = 1;
@@ -194,6 +199,11 @@
             // 
             this.nudWarleaderAlive.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nudWarleaderAlive.Location = new System.Drawing.Point(6, 20);
+            this.nudWarleaderAlive.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.nudWarleaderAlive.Name = "nudWarleaderAlive";
             this.nudWarleaderAlive.Size = new System.Drawing.Size(59, 29);
             this.nudWarleaderAlive.TabIndex = 1;
@@ -234,6 +244,11 @@
             // 
             this.nudMurkEyeAlive.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nudMurkEyeAlive.Location = new System.Drawing.Point(6, 20);
+            this.nudMurkEyeAlive.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.nudMurkEyeAlive.Name = "nudMurkEyeAlive";
             this.nudMurkEyeAlive.Size = new System.Drawing.Size(59, 29);
             this.nudMurkEyeAlive.TabIndex = 1;
@@ -466,6 +481,11 @@
             // 
             this.nudOracleAlive.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nudOracleAlive.Location = new System.Drawing.Point(6, 20);
+            this.nudOracleAlive.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.nudOracleAlive.Name = "nudOracleAlive";
             this.nudOracleAlive.Size = new System.Drawing.Size(59, 29);
             this.nudOracleAlive.TabIndex = 1;
