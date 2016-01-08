@@ -144,7 +144,15 @@ namespace MurlocOTK
             else
                 buttonRecalc.Visible = false;
 
-            if (numDead > MAX_NUM || ((numDead + numAlive) > MAX_NUM && numDead > 1 && numAlive < MAX_NUM))
+            if (numAlive >= MAX_NUM)
+            {
+                murlocNum = MAX_NUM;
+                bluegilNum = (int)nudBluegillAlive.Value;
+                warleaderNum = (int)nudWarleaderAlive.Value;
+                murkeyeNum = (int)nudMurkEyeAlive.Value;
+                oracleNum = (int)nudOracleAlive.Value;
+            }
+            else if (numDead > MAX_NUM || ((numDead + numAlive) > MAX_NUM && numDead > 1 && numAlive < MAX_NUM))
             {
                 // Pick up murloc randomly
                 int pickNum = MAX_NUM - numAlive;
